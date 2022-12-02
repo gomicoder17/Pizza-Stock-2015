@@ -29,6 +29,10 @@ def get_days():
     monday = pd.Timestamp(year=2015, month=today.month, day=today.day)
     while monday.dayofweek != 0:
         monday += pd.Timedelta(days=1)
+    if monday.year == 2016:
+        monday = pd.Timestamp(year=2017, month=today.month, day=today.day)
+        while monday.dayofweek != 0:
+            monday -= pd.Timedelta(days=1)
     return today, monday
 
 
